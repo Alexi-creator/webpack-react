@@ -1,4 +1,4 @@
-// import './styles.scss'
+import './styles.scss'
 import { Test } from '../components/Test/Test'
 
 export const App = () => {

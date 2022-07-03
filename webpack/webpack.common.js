@@ -19,13 +19,26 @@ module.exports = {
         ],
       },
       {
-        // test: /\.s[ac]ss$/i,
+        // для модульных изолированных стилей с хешем
         test: /\.module\.s(a|c)ss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        // сначала sass/scss преобразуется в css, затем css в js, и потом подключение в html в теге style
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]__[local]__[sha1:hash:hex:7]' // настройка для итогово названия класса (помимо уникального хэша есть название компонента и класса который задали)
+              },
+            }
+          },
+          'sass-loader'
+        ],
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        // для глобальных стилей не модульных чтобы имена классов не менялись
+        test: /^((?!\.module).)*s(a|c)ss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
