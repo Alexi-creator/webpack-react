@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = {
   entry: path.resolve(__dirname, '..', './src/index.tsx'),
@@ -23,7 +24,7 @@ module.exports = {
         test: /\.module\.s(a|c)ss$/,
         // сначала sass/scss преобразуется в css, затем css в js, и потом подключение в html в теге style
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -32,13 +33,19 @@ module.exports = {
               },
             }
           },
-          'sass-loader'
+          'sass-loader',
+          'postcss-loader',
         ],
       },
       {
         // для глобальных стилей не модульных чтобы имена классов не менялись
         test: /^((?!\.module).)*s(a|c)ss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: [
+          MiniCssExtractPlugin.loader, // более лучший варинат чем style-loader т.к. стили будут в link сразу не будет сайт без стилей какое время т.к. style-loader подключает в теги <style> когда обработается js а это долго может быть
+          'css-loader',
+          'sass-loader',
+          'postcss-loader',
+        ]
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
@@ -58,6 +65,7 @@ module.exports = {
     new HtmlWebpackPlugin({
         template: path.resolve(__dirname, '..', './src/index.html'),
     }),
+    new MiniCssExtractPlugin(),
   ],
   stats: 'errors-only',
 }
