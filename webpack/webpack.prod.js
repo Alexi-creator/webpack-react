@@ -5,7 +5,8 @@ module.exports = {
   devtool: 'source-map',
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.name': JSON.stringify('Codevolution'),
+      // в любом файле будет доступ к переменной proccess.env.name со значением test prod 
+      'process.env.name': JSON.stringify('test prod'),
     }),
   ],
 }
