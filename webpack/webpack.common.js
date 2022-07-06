@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+// const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: path.resolve(__dirname, '..', './src/index.tsx'),
@@ -29,9 +30,10 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: '[name]__[local]__[sha1:hash:hex:7]' // настройка для итогово названия класса (помимо уникального хэша есть название компонента и класса который задали)
+                // настройка для итогово названия класса (помимо уникального хэша есть название компонента и класса который задали)
+                localIdentName: '[name]__[local]__[sha1:hash:hex:7]',
               },
-            }
+            },
           },
           'sass-loader',
           'postcss-loader',
@@ -45,7 +47,7 @@ module.exports = {
           'css-loader',
           'sass-loader',
           'postcss-loader',
-        ]
+        ],
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
@@ -63,9 +65,12 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, '..', './src/index.html'),
+      template: path.resolve(__dirname, '..', './src/index.html'),
     }),
     new MiniCssExtractPlugin(),
+    // new CopyPlugin({
+    //   patterns: [{ from: 'source', to: 'dest' }],
+    // }),
   ],
   stats: 'errors-only',
 }
