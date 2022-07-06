@@ -3,12 +3,12 @@ import { Test } from '../components/Test/Test'
 import { ClickCounter } from './ClickCounter'
 
 export const App = () => {
-    return (
-        <>
-            <h1>React typeScript</h1>
-            <Test />
-            counter:
-            <ClickCounter />
-        </>
-    )
+  return (
+    <>
+      <h1>React typeScript</h1>
+      <Test />
+      counter:
+      <ClickCounter />
+    </>
+  )
 }

@@ -4,6 +4,9 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
   },
+  env: {
+    browser: true,
+  },
   settings: {
     react: {
       version: 'detect',
@@ -17,10 +20,9 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:import/typescript',
     'plugin:jsx-a11y/recommended',
-    // 'plugin:eslint-comments/recommended',
-    // 'prettier/@typescript-eslint',
-    'prettier',
+    'plugin:eslint-comments/recommended',
     'plugin:prettier/recommended',
+    'eslint:recommended',
   ],
   rules: {
     'no-unused-vars': 'off',
@@ -30,5 +32,6 @@ module.exports = {
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
   },
 }

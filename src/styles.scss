@@ -2,8 +2,10 @@
 // а так же можно сюда импорить глобальные стили библиотек не изолированные стили
 // имена классов не будут меняться
 
-*, *:after, *:before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
