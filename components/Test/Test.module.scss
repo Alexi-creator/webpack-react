@@ -1,5 +1,16 @@
 .test {
-    color: red;
     border: 1px solid red;
     display: flex;
+}
+
+.arrow {
+    cursor: pointer;
+}
+
+.cn1 {
+    color: blue;
+}
+
+.cn2 {
+    font-size: 24px;
 }
