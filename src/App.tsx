@@ -1,7 +1,7 @@
 import './styles.scss'
-import { Test } from '../components/Test/Test'
+import { Test } from './components/Test/Test'
 import { ClickCounter } from './ClickCounter'
-import { List } from '../components/List/List'
+import { List } from './components/List/List'
 
 export const App = () => {
   return (

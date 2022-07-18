@@ -1,0 +1,8 @@
+.item {
+  color: cadetblue;
+  cursor: pointer;
+
+  &.active {
+    color: red;
+  }
+}

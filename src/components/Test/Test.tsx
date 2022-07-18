@@ -1,7 +1,7 @@
 import styles from './Test.module.scss'
-import Logo from '../../src/logo.png'
-import svgIcon from '../../src/svg.svg'
-import ArrowIcon from '../../src/assets/images/Arrow'
+import Logo from '../../logo.png'
+import svgIcon from '../../svg.svg'
+import ArrowIcon from '../../assets/images/Arrow'
 import cn from 'classnames'
 import { useState } from 'react'
 
