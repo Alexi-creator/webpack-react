@@ -62,6 +62,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '..', './build'),
     filename: '[chunkhash].js',
+    clean: true,
+    assetModuleFilename: 'assets/images/[name][ext]',
   },
   plugins: [
     new HtmlWebpackPlugin({

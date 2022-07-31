@@ -27,6 +27,7 @@ export const Test = () => {
         <li>2</li>
         <li>3</li>
       </ul>
+      <div className={styles.img}>img</div>
     </div>
   )
 }
