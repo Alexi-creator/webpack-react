@@ -50,6 +50,11 @@ module.exports = {
         ],
       },
       {
+        // для css стилей
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
         type: 'asset/resource',
       },
