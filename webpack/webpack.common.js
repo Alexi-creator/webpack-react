@@ -69,6 +69,7 @@ module.exports = {
     filename: '[chunkhash].js',
     clean: true,
     assetModuleFilename: 'assets/images/[name][ext]',
+    publicPath: '/', // чтобы длинные роуты работали
   },
   plugins: [
     new HtmlWebpackPlugin({
